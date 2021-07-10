@@ -54,29 +54,32 @@ When you're sure that you have the correct key, verify the signature in the sign
 `$ gpg --verify SHA256SUMS.asc` <br>
 Look for "Good signature from..." and verify that the fingerprint matches what you expect <br>
 
-Unzip Bitcoin Core<br>
+
+Startup using CLI  :
+---------------
+* Unzip Bitcoin Core -> Go to the bin dir<br>
 `$ cd bitcoin-0.21.1/bin`
 
-Start Bitcoin Core on a test network, called signet <br><br>
+* Start Bitcoin Core on a test network, called signet <br>
 `$ \bitcoind -signet`
 
-Have a look at data from the blockchain<br>
+* Have a look at data from the blockchain<br>
 `$ \bitcoin-cli -signet getblockchaininfo` <br><br>
 Look for "initialblockdownload". True means it's sill syncing
 
-Stop Bitcoin Core<br>
+* Stop Bitcoin Core<br>
 `$ \bitcoin-cli -signet stop`<br><br>
 
-Make it always run signet<br>
-$ echo "chain=signet" >> ~[Path to Bitcoin config](https://en.bitcoin.it/wiki/Running_Bitcoin)<br><br>
+* Make it always run signet<br>
+`$ echo "chain=signet" >> `~[Path to Bitcoin config](https://en.bitcoin.it/wiki/Running_Bitcoin)<br><br>
 
-Enable transaction index<br>
-$ echo "txindex=1" >> ~[Path to Bitcoin config](https://en.bitcoin.it/wiki/Running_Bitcoin)<br><br>
+* Enable transaction index<br>
+`$ echo "txindex=1" >> `~[Path to Bitcoin config](https://en.bitcoin.it/wiki/Running_Bitcoin)<br><br>
 
-Now you can start bitcoind<br> 
+* Now you can start bitcoind<br> 
 `$ .\bitcoind `<br><br>
 
-You can check again whether sync is finished<br>
+* You can check again whether sync is finished<br>
 `$ .\bitcoin-cli getblockchaininfo`<br><br>
 
 Create, encrypt and backup wallet :
@@ -114,13 +117,15 @@ Receive and send some bitcoin :
 * To use your private keys, you must decrypt them. The following will decrypt and clean memory after 300 seconds.<br>
 `$ .\bitcoin-cli <walletpassphrase> 300` <br><br>
 
-* To get some Test coin you can use [Signet Faucet](https://signet.bc-2.jp/)<br>
+* To get some Test coin, you can use [Signet Faucet](https://signet.bc-2.jp/)<br>
 
 
-* Send some coins to a peer in your group<br>
-`$ ./bitcoin-cli -named sendtoaddress address=<address> amount=1`<br><br>
+* Send some coins to a address <br>
+`$ .\bitcoin-cli -named sendtoaddress address=<address> amount=0.001`<br><br>
 
 * Lock the wallet again. The 300 seconds is just a safeguard in case you forget to lock.<br>
-`$ ./bitcoin-cli walletlock`<br><br>
+`$ .\bitcoin-cli walletlock`<br><br>
+
+
 
 
